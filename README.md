@@ -98,5 +98,3 @@ Pairplots and other exploratory plots showcase feature relationships.
 3. The final cleaned dataset will be stored as `titanic_cleaned.csv`.
 
 ***
-
-[10](https://codesignal.com/learn/courses/data-cleaning-and-preprocessing-in-machine-learning/lessons/data-preprocessing-the-titanic-dataset-exploration)
