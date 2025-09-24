@@ -5,7 +5,7 @@ This project performs exploratory data analysis on the Titanic passenger dataset
 
 ## Step 1: Import Libraries
 
-```python
+```
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -19,7 +19,7 @@ These libraries are essential for data manipulation (pandas, numpy) and visualiz
 
 ## Step 2: Load Dataset
 
-```python
+```
 df = pd.read_csv('/content/Titanic-Dataset.csv')
 ```
 
@@ -30,7 +30,7 @@ Loads the Titanic dataset from the specified CSV path into a pandas DataFrame na
 
 ## Step 3: Summary Statistics for Numeric Features
 
-```python
+```
 print("Summary statistics for numeric features")
 print(df.describe())
 ```
@@ -42,7 +42,7 @@ print(df.describe())
 
 ## Step 4: Histograms for Numeric Features
 
-```python
+```
 df.hist(column=['Age','Fare'], bins=20, figsize=(12,5), edgecolor='black')
 plt.suptitle('Histograms of Age and Fare')
 plt.show()
@@ -55,7 +55,7 @@ Histograms visually display the frequency distribution of Age and Fare. Bins div
 
 ## Step 5: Boxplots Grouped by Survival
 
-```python
+```
 plt.figure(figsize=(12,5))
 plt.subplot(1,2,1)
 sns.boxplot(x='Survived', y='Age', data=df)
@@ -75,7 +75,7 @@ Boxplots reveal the spread and quartiles of Age and Fare grouped by Survived (0 
 
 ## Step 6: Pairplot for Numerical Features by Survival
 
-```python
+```
 sns.pairplot(df, vars=['Age','Fare'], hue='Survived', palette='Set1')
 plt.suptitle('Pairplot: Age and Fare by Survival', y=1.02)
 plt.show()
@@ -88,7 +88,7 @@ Pairplot shows scatterplots and distributions of Age and Fare with Survival as c
 
 ## Step 7: Correlation Matrix Heatmap
 
-```python
+```
 corr = df[['Survived','Pclass','Age','SibSp','Parch','Fare']].corr()
 plt.figure(figsize=(8,6))
 sns.heatmap(corr, annot=True, cmap='coolwarm', fmt=".2f")
@@ -103,7 +103,7 @@ Heatmap displays correlation coefficients between numeric features and survival.
 
 ## Step 8: Countplots for Categorical Features by Survival
 
-```python
+```
 plt.figure(figsize=(15,5))
 
 plt.subplot(1,3,1)
@@ -129,7 +129,7 @@ Countplots show how many passengers in each category survived or not, helping vi
 
 ## Step 9: Feature-Level Inferences
 
-```python
+```
 print("Average Age of Passengers:", df['Age'].mean())
 print("Survival Rate:", df['Survived'].mean())
 
@@ -142,7 +142,5 @@ print(df.groupby('Pclass')['Survived'].mean())
 
 **Explanation:**  
 Basic aggregation to calculate mean age and survival rates overall, and broken down by gender and passenger class to interpret which groups had better chances of survival.
-
 ***
 
-[7](https://www.youtube.com/watch?v=Ea_KAcdv1vs)
