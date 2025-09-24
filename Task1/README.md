@@ -99,3 +99,49 @@ Pairplots and other exploratory plots showcase feature relationships.
 
 ***
 
+interview Questions
+
+***
+
+**Q1: What are the different types of missing data?**  
+A1: There are three main types—Missing Completely at Random (MCAR), where missingness is independent of all data; Missing at Random (MAR), where missingness depends only on observed data; and Missing Not at Random (MNAR), where missingness is related to the unobserved value itself.
+
+***
+
+**Q2: How do you handle categorical variables?**  
+A2: Categorical variables can be transformed using encoding techniques. Label encoding assigns each category a unique integer, while one-hot encoding creates separate binary columns for each category. Advanced approaches include target encoding and feature hashing, especially for high-cardinality features.
+
+***
+
+**Q3: What is the difference between normalization and standardization?**  
+A3: Normalization rescales data to a fixed range, usually $$$$, using $$ x' = \frac{x - x_{\min}}{x_{\max} - x_{\min}} $$. Standardization adjusts data to have zero mean and unit variance, using $$ x' = \frac{x - \mu}{\sigma} $$.
+
+***
+
+**Q4: How do you detect outliers?**  
+A4: Outliers can be detected using visualization methods like boxplots, or statistical techniques such as the Interquartile Range (IQR) method—values outside $$ Q1 - 1.5 \times IQR $$ or $$ Q3 + 1.5 \times IQR $$ are flagged as outliers. Z-score analysis is also used, where points with absolute z-score greater than 3 are potential outliers.
+
+***
+
+**Q5: Why is preprocessing important in ML?**  
+A5: Preprocessing cleans and organizes raw data, improves quality, removes noise and irrelevant information, ensures compatibility with algorithms, and enhances model accuracy and generalization. Skipping preprocessing may lead to poor or biased model performance.
+
+***
+
+**Q6: What is one-hot encoding vs label encoding?**  
+A6: Label encoding assigns each category an integer value, suitable for ordinal data. One-hot encoding creates binary columns for each value, avoiding order relationships, and is preferred for nominal data without inherent rank.
+
+***
+
+**Q7: How do you handle data imbalance?**  
+A7: Data imbalance can be addressed by oversampling minority classes, undersampling majority classes, generating synthetic samples (like SMOTE), or modifying algorithm class weights to give the minority class more importance.
+
+***
+
+**Q8: Can preprocessing affect model accuracy?**  
+A8: Yes, proper preprocessing improves data quality and feature representation, leading to better model learning and higher accuracy. Poor preprocessing may introduce bias, overfitting, or model failures.
+
+---
+
+
+
