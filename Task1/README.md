@@ -114,7 +114,9 @@ A2: Categorical variables can be transformed using encoding techniques. Label en
 ***
 
 **Q3: What is the difference between normalization and standardization?**  
-A3: Normalization rescales data to a fixed range, usually $$$$, using $$ x' = \frac{x - x_{\min}}{x_{\max} - x_{\min}} $$. Standardization adjusts data to have zero mean and unit variance, using $$ x' = \frac{x - \mu}{\sigma} $$.
+A3: Normalization rescales data to a fixed range, usually $$$$, using $$ x' = \frac{x - x_{\min}}{x_{\max} - x_{\min}} $$.
+
+Standardization adjusts data to have zero mean and unit variance, using $$ x' = \frac{x - \mu}{\sigma} $$.
 
 ***
 
