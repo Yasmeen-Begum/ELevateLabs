@@ -12,8 +12,8 @@ The dataset used contains the following columns:
 `price, area, bedrooms, bathrooms, stories, mainroad, guestroom, basement, hotwaterheating, airconditioning, parking, prefarea, furnishingstatus`
 
 You can download the dataset (Housing.csv) from this link:  
-[Housing Price Dataset]([https://example.com/path-to-your-dataset](https://github.com/Yasmeen-Begum/ELevateLabs/blob/main/Task3/Housing.csv))  
-(Replace with actual download URL or your own dataset location)
+[Housing Price Dataset]([https://github.com/Yasmeen-Begum/ELevateLabs/blob/main/Task3/Housing.csv])
+
 
 ## Project Setup
 
