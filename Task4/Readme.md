@@ -122,6 +122,34 @@ print("\nConfusion Matrix (threshold=0.3):\n", cm_tuned)
 print(f"Precision (threshold=0.3): {precision_tuned:.2f}")
 print(f"Recall (threshold=0.3): {recall_tuned:.2f}")
 ```
+Here are detailed answers to the interview questions on logistic regression:
 
+1. **How does logistic regression differ from linear regression?**  
+   Logistic regression is used for classification problems where the output is categorical (often binary), predicting the probability that an input belongs to a category. Linear regression predicts continuous numeric outcomes. Logistic regression models the log-odds of the probability using a sigmoid function which constrains output between 0 and 1, whereas linear regression predicts values on an unrestricted continuous scale. Logistic regression uses maximum likelihood estimation while linear regression uses least squares estimation. The underlying assumptions and objectives also differ significantly.
 
+2. **What is the sigmoid function?**  
+   The sigmoid function is an S-shaped curve that maps any real-valued number into the range (0, 1), interpreting the output of logistic regression as a probability. It is defined as  
+   $$
+   \sigma(x) = \frac{1}{1 + e^{-x}}
+   $$  
+   This function squashes input values so that they can be interpreted as probabilities.
+
+3. **What is precision vs recall?**  
+   - Precision is the ratio of true positive predictions to all positive predictions (true positives + false positives). It measures the accuracy of positive predictions.  
+   - Recall (or sensitivity) is the ratio of true positives to all actual positives (true positives + false negatives). It measures how well the model captures all positive instances.
+
+4. **What is the ROC-AUC curve?**  
+   The ROC (Receiver Operating Characteristic) curve plots the true positive rate (Recall) against the false positive rate for different classification thresholds. AUC (Area Under the Curve) quantifies the overall ability of the model to discriminate between classes; an AUC of 1 means perfect classification, 0.5 means random guessing.
+
+5. **What is the confusion matrix?**  
+   It is a table summarizing the performance of a classification model by showing counts of true positives, true negatives, false positives, and false negatives. It helps evaluate how well the model is classifying each category
+
+6. **What happens if classes are imbalanced?**  
+   With class imbalance (one class much larger than the other), accuracy can be misleading because the model might predict the majority class always. Precision, recall, and other metrics like F1-score become more important. Techniques such as resampling, synthetic data generation, or using algorithms robust to imbalance are recommended.
+
+7. **How do you choose the threshold?**  
+   The classification threshold (default 0.5) can be tuned based on the trade-off between precision and recall required in the specific application. ROC curves, precision-recall curves, or domain-specific costs of false positives/negatives help decide the appropriate threshold
+
+8. **Can logistic regression be used for multi-class problems?**  
+   Yes, logistic regression can be extended to multi-class classification by using strategies such as one-vs-rest (OvR) or multinomial logistic regression, allowing it to predict probabilities for multiple classes rather than just binary outcomes
 
