@@ -1,0 +1,122 @@
+Breast Cancer Classification Using Logistic Regression
+Project Overview
+
+This project builds a binary classification model using logistic regression to distinguish between benign and malignant breast cancer tumors. The dataset used is the Breast Cancer Wisconsin (Diagnostic) Dataset from Scikit-learn. The model is evaluated using common metrics such as confusion matrix, precision, recall, and ROC-AUC.
+Technologies Used
+
+    Python 3
+
+    NumPy
+
+    Pandas
+
+    Matplotlib
+
+    Scikit-learn
+
+Setup and Installation
+
+    Clone this repository (if applicable):
+
+bash
+git clone <repository-url>
+cd <repository-directory>
+
+Install required libraries (if not already installed):
+
+    bash
+    pip install numpy pandas matplotlib scikit-learn
+
+Step-by-Step Instructions
+1. Import Libraries
+
+python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, roc_auc_score, roc_curve
+
+2. Load Dataset
+
+Load the Breast Cancer Wisconsin Dataset.
+
+python
+data = load_breast_cancer()
+X = data.data
+y = data.target
+
+3. Split Data into Train and Test Sets
+
+Split data into training and testing sets in an 80:20 ratio.
+
+python
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+
+4. Standardize Features
+
+Standardize features to have mean 0 and variance 1.
+
+python
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+5. Fit Logistic Regression Model
+
+Train logistic regression model on the training data.
+
+python
+model = LogisticRegression(max_iter=1000, solver='liblinear')
+model.fit(X_train, y_train)
+
+6. Predict and Evaluate
+
+Predict probabilities on test set for threshold tuning and evaluation.
+
+python
+y_prob = model.predict_proba(X_test)[:, 1]
+y_pred_05 = (y_prob >= 0.5).astype(int)
+
+cm = confusion_matrix(y_test, y_pred_05)
+precision = precision_score(y_test, y_pred_05)
+recall = recall_score(y_test, y_pred_05)
+roc_auc = roc_auc_score(y_test, y_prob)
+
+7. Plot ROC Curve
+
+Visualize the ROC curve for classifier at different thresholds.
+
+python
+fpr, tpr, thresholds = roc_curve(y_test, y_prob)
+plt.figure(figsize=(8,6))
+plt.plot(fpr, tpr, label=f'ROC Curve (AUC = {roc_auc:.2f})')
+plt.plot([0, 1], [0, 1], 'k--')
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate (Recall)')
+plt.title('Receiver Operating Characteristic Curve')
+plt.legend()
+plt.show()
+
+8. Threshold Tuning Example
+
+Evaluate model performance using a different classification threshold.
+
+python
+threshold = 0.3
+y_pred_tuned = (y_prob >= threshold).astype(int)
+cm_tuned = confusion_matrix(y_test, y_pred_tuned)
+precision_tuned = precision_score(y_test, y_pred_tuned)
+recall_tuned = recall_score(y_test, y_pred_tuned)
+
+print("Confusion Matrix (threshold=0.5):\n", cm)
+print(f"Precision (threshold=0.5): {precision:.2f}")
+print(f"Recall (threshold=0.5): {recall:.2f}")
+print(f"ROC-AUC Score: {roc_auc:.2f}")
+
+print("\nConfusion Matrix (threshold=0.3):\n", cm_tuned)
+print(f"Precision (threshold=0.3): {precision_tuned:.2f}")
+print(f"Recall (threshold=0.3): {recall_tuned:.2f}")
